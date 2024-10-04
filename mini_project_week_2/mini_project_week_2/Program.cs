@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 
 class Program
 {
     static void Main()
     {
-        List<string> itemList = new List<string>();
+        ListManager manager = new ListManager();
 
         Console.WriteLine("Enter items to add to your list. Type 'exit' to finish.");
 
@@ -17,14 +16,9 @@ class Program
             if (input.ToLower() == "exit")
                 break;
 
-            itemList.Add(input);
-            Console.WriteLine($"'{input}' added. List now has {itemList.Count} item(s).");
+            manager.AddItem(input);
         }
 
-        Console.WriteLine("\nFinal list:");
-        foreach (string item in itemList)
-        {
-            Console.WriteLine(item);
-        }
+        manager.DisplayList();
     }
 }
